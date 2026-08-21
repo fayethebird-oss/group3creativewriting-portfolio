@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Short Stories - Group 3 Portfolio</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                font-family: Georgia, serif;
+                margin: 0;
+                background: #202a35;
+                color: #2d261d;
+            }
+            header {
+                background: linear-gradient(#182331, #2c3e50);
+                color: #fff;
+                padding: 48px 20px;
+                text-align: center;
+                border-bottom: 5px solid #c69c45;
+            }
+            header h1 { margin: 0 0 8px; }
+            nav {
+                display: flex;
+                justify-content: center;
+                background: #111a24;
+                flex-wrap: wrap;
+            }
+            nav a { color: #f5dfaa; padding: 14px 20px; text-decoration: none; }
+            nav a:hover { background: #c69c45; color: #182331; }
+            main {
+                max-width: 1050px;
+                margin: 0 auto;
+                padding: 40px 20px 80px;
+            }
+            .blog-layout {
+                display: grid;
+                grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr);
+                gap: 28px;
+                align-items: start;
+            }
+            .post, .editor {
+                background: #f7efd9;
+                padding: 28px;
+                box-shadow: 0 4px 12px #10182099;
+                border: 1px solid #c69c45;
+            }
+            .post { margin-bottom: 22px; }
+            .post h2 { margin-top: 0; color: #734d16; }
+            .date { color: #734d16; font-size: 0.9rem; }
+            .post p { color: #2d261d; }
+            .post-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+            .post-actions button { margin-top: 0; padding: 8px 12px; font-size: 0.9rem; }
+            .delete-button { background: #8b2f2f; }
+            .delete-button:hover { background: #6d2323; }
+            .comments { border-top: 1px solid #ddd; margin-top: 20px; padding-top: 16px; }
+            .comments h3 { margin: 0 0 12px; color: #734d16; }
+            .comment { background: #fff9e9; border-left: 3px solid #c69c45; margin: 8px 0; padding: 10px 12px; }
+            .comment strong { color: #734d16; }
+            .comment-delete { background: transparent; color: #8b2f2f; margin: 4px 0 0; padding: 0; font-size: 0.8rem; }
+            .comment-delete:hover { background: transparent; text-decoration: underline; }
+            .comment-form { display: grid; gap: 8px; margin-top: 14px; }
+            .comment-form input { padding: 8px; }
+            .comment-form button { justify-self: start; margin-top: 0; padding: 8px 12px; }
+            .editor h2 { color: #734d16; }
+            .editor p { color: #2d261d; font-weight: 600; }
+            .story { line-height: 1.8; white-space: pre-wrap; }
+            label { display: block; font-weight: bold; margin: 14px 0 6px; }
+            input, textarea {
+                box-sizing: border-box;
+                width: 100%;
+                border: 1px solid #bbb;
+                border-radius: 3px;
+                padding: 10px;
+                font: inherit;
+            }
+            textarea { min-height: 240px; resize: vertical; }
+            button {
+                margin-top: 16px;
+                background: #734d16;
+                border: 0;
+                border-radius: 3px;
+                color: #fff;
+                cursor: pointer;
+                padding: 12px 18px;
+                font: inherit;
+            }
+            button:hover { background: #4c3210; }
+            .back { display: inline-block; margin-top: 26px; color: #734d16; }
+            footer { background: #111a24; color: #f5dfaa; text-align: center; padding: 10px; border-top: 3px solid #c69c45; }
+            @media (max-width: 700px) {
+                .blog-layout { grid-template-columns: 1fr; }
+                main { padding: 28px 14px 60px; }
+                .post, .editor { padding: 22px; }
+            }
+        </style>
+        <link rel="stylesheet" href="constellation.css">
+    </head>
+    <body>
+        <div class="virgo-bg" aria-hidden="true"></div>
+        <header><h1>Short Story Journal</h1><p>A place for the stories of Grade 12 Virgo Group 3</p></header>
+        <nav><a href="grade12virgo-group3portfolio.html#home">Home</a><a href="works.html">Works</a><a href="about.html">About</a></nav>
+        <main>
+            <div class="blog-layout">
+                <section id="posts" aria-label="Published short stories">
+                    <article class="post">
+                        <p class="date">August 20, 2026 | Group 3</p>
+                        <h2>The First Page</h2>
+                        <p class="story">Every story begins with a single idea. For our group, that idea becomes a character, a place, and a moment worth sharing.
+
+                        This journal is where those ideas can meet readers. As the collection grows, every new story will appear here as its own post.</p>
+                    </article>
+                </section>
+                <aside class="editor">
+                    <h2>Publish a Story</h2>
+                    <p>Add a short story to this journal. Posts are saved in this browser.</p>
+                    <form id="story-form">
+                        <label for="title">Story title</label>
+                        <input id="title" name="title" required>
+                        <label for="author">Author or group</label>
+                        <input id="author" name="author" required>
+                        <label for="content">Your story</label>
+                        <textarea id="content" name="content" required></textarea>
+                        <button type="submit">Publish Story</button>
+                    </form>
+                </aside>
+            </div>
+            <a class="back" href="works.html">&larr; Back to Works</a>
+        </main>
+        <footer><p>&copy; 2026 Group 3 Portfolio</p></footer>
+        <script>
+            const storyForm = document.getElementById('story-form');
+            const posts = document.getElementById('posts');
+            const savedStories = JSON.parse(localStorage.getItem('group3Stories') || '[]');
+            const interactions = JSON.parse(localStorage.getItem('group3StoryInteractions') || '{}');
+
+            savedStories.forEach(function (story, index) {
+                if (!story.id) story.id = 'story-old-' + index + '-' + [story.title, story.author, story.date].join('-').toLowerCase().replace(/[^a-z0-9]+/g, '-');
+            });
+            localStorage.setItem('group3Stories', JSON.stringify(savedStories));
+
+            function saveInteractions() {
+                localStorage.setItem('group3StoryInteractions', JSON.stringify(interactions));
+            }
+
+            function getInteraction(postId) {
+                if (!interactions[postId]) interactions[postId] = { likes: 0, comments: [] };
+                return interactions[postId];
+            }
+
+            function sameName(firstName, secondName) {
+                return firstName.trim().toLowerCase() === secondName.trim().toLowerCase();
+            }
+
+            function setupInteractions(article, story) {
+                const interaction = getInteraction(story.id);
+                article.insertAdjacentHTML('beforeend', '<div class="post-actions"><button class="like-button" type="button">Like <span class="like-count">0</span></button><button class="delete-button" type="button">Delete Post</button></div><div class="comments"><h3>Comments</h3><div class="comment-list"></div><form class="comment-form"><input name="commenter" placeholder="Your name" required><input name="comment" placeholder="Leave a comment" required><button type="submit">Post Comment</button></form></div>');
+                const likeButton = article.querySelector('.like-button');
+                const deleteButton = article.querySelector('.delete-button');
+                const commentList = article.querySelector('.comment-list');
+                const commentForm = article.querySelector('.comment-form');
+                likeButton.querySelector('.like-count').textContent = interaction.likes;
+
+                function renderComment(comment) {
+                    const item = document.createElement('div');
+                    item.className = 'comment';
+                    item.innerHTML = '<strong></strong><br><span></span><br><button class="comment-delete" type="button">Delete my comment</button>';
+                    item.querySelector('strong').textContent = comment.name;
+                    item.querySelector('span').textContent = comment.text;
+                    item.querySelector('.comment-delete').addEventListener('click', function () {
+                        const name = prompt('Enter your name to delete this comment:');
+                        if (name === null) return;
+                        if (!sameName(name, comment.name)) {
+                            alert('Only the commenter who posted this comment can delete it.');
+                            return;
+                        }
+                        const commentIndex = interaction.comments.indexOf(comment);
+                        if (commentIndex !== -1) interaction.comments.splice(commentIndex, 1);
+                        item.remove();
+                        saveInteractions();
+                    });
+                    commentList.append(item);
+                }
+
+                interaction.comments.forEach(renderComment);
+                likeButton.addEventListener('click', function () {
+                    interaction.likes += 1;
+                    likeButton.querySelector('.like-count').textContent = interaction.likes;
+                    saveInteractions();
+                });
+                deleteButton.addEventListener('click', function () {
+                    const authorName = prompt('Enter the author name to delete this post:');
+                    if (authorName === null) return;
+                    if (!sameName(authorName, story.author || 'Group 3')) {
+                        alert('Only the author of this post can delete it.');
+                        return;
+                    }
+                    if (!confirm('Delete this post?')) return;
+                    article.remove();
+                    const storyIndex = savedStories.findIndex(function (savedStory) {
+                        return savedStory.id === story.id;
+                    });
+                    if (storyIndex !== -1) savedStories.splice(storyIndex, 1);
+                    delete interactions[story.id];
+                    localStorage.setItem('group3Stories', JSON.stringify(savedStories));
+                    saveInteractions();
+                });
+                commentForm.addEventListener('submit', function (event) {
+                    event.preventDefault();
+                    const comment = {
+                        name: commentForm.elements.commenter.value.trim(),
+                        text: commentForm.elements.comment.value.trim()
+                    };
+                    interaction.comments.push(comment);
+                    renderComment(comment);
+                    commentForm.reset();
+                    saveInteractions();
+                });
+                saveInteractions();
+            }
+
+            function addPost(story) {
+                const article = document.createElement('article');
+                article.className = 'post';
+                article.innerHTML = '<p class="date"></p><h2></h2><p class="story"></p>';
+                article.querySelector('.date').textContent = story.date + ' | ' + story.author;
+                article.querySelector('h2').textContent = story.title;
+                article.querySelector('.story').textContent = story.content;
+                setupInteractions(article, story);
+                posts.prepend(article);
+            }
+
+            setupInteractions(document.querySelector('.post'), { id: 'sample-story', author: 'Group 3' });
+            savedStories.forEach(addPost);
+
+            storyForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+                const story = {
+                    id: 'story-' + Date.now(),
+                    title: document.getElementById('title').value.trim(),
+                    author: document.getElementById('author').value.trim(),
+                    content: document.getElementById('content').value.trim(),
+                    date: new Date().toLocaleDateString('en-US', {
+                        year: 'numeric', month: 'long', day: 'numeric'
+                    })
+                };
+                savedStories.unshift(story);
+                localStorage.setItem('group3Stories', JSON.stringify(savedStories));
+                addPost(story);
+                storyForm.reset();
+            });
+        </script>
+    </body>
+</html>

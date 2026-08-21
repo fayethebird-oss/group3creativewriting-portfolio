@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>About - Group 3 Portfolio</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background: #202a35;
+                color: #2d261d;
+            }
+            header {
+                background: linear-gradient(#182331, #2c3e50);
+                color: #fff;
+                padding: 40px 20px;
+                text-align: center;
+                border-bottom: 5px solid #c69c45;
+            }
+            nav {
+                display: flex;
+                justify-content: center;
+                background-color: #111a24;
+            }
+            nav a {
+                color: #f5dfaa;
+                padding: 14px 20px;
+                text-decoration: none;
+                text-align: center;
+            }
+            nav a:hover {
+                background-color: #c69c45;
+                color: #182331;
+            }
+            main {
+                max-width: 900px;
+                margin: 0 auto;
+                padding: 40px 20px 80px;
+            }
+            section {
+                background-color: #f7efd9;
+                margin-bottom: 20px;
+                padding: 20px;
+                border-left: 5px solid #c69c45;
+                color: #2d261d;
+            }
+            section h2 {
+                color: #734d16;
+                font-weight: 800;
+            }
+            section p {
+                color: #2d261d;
+                font-weight: 600;
+            }
+            section a {
+                color: #734d16;
+                text-decoration: none;
+            }
+            section a:hover {
+                text-decoration: underline;
+            }
+            .thought-layout {
+                display: grid;
+                grid-template-columns: minmax(0, 1.5fr) minmax(260px, 1fr);
+                gap: 24px;
+            }
+            .thought-card {
+                background: #f7efd9;
+                border-left: 5px solid #c69c45;
+                padding: 24px;
+                margin-bottom: 20px;
+            }
+            .thought-card h2,
+            .thought-editor h2 {
+                color: #734d16;
+                margin-top: 0;
+            }
+            .thought-card p,
+            .thought-editor p {
+                color: #2d261d;
+                font-weight: 600;
+                line-height: 1.7;
+            }
+            .thought-post {
+                background: rgba(255, 255, 255, 0.92);
+                border: 1px solid #c69c45;
+                border-left: 5px solid #c69c45;
+                margin-bottom: 20px;
+                padding: 24px;
+                box-shadow: 0 4px 12px #10182066;
+                backdrop-filter: blur(3px);
+            }
+            .community-heading {
+                color: #734d16;
+                margin: 30px 0 14px;
+                text-align: center;
+                text-shadow: 0 2px 4px #fff;
+            }
+            .thought-post h2 { color: #734d16; margin-top: 0; }
+            .thought-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+            .thought-actions button { margin-top: 0; padding: 8px 12px; }
+            .thought-delete { background: #8b2f2f; }
+            .thought-delete:hover { background: #6d2323; }
+            .comments { border-top: 1px solid #c69c45; margin-top: 18px; padding-top: 14px; }
+            .comments h3 { color: #734d16; margin: 0 0 10px; }
+            .comment { background: #fff9e9; border-left: 3px solid #c69c45; margin: 8px 0; padding: 9px 12px; }
+            .comment strong { color: #734d16; }
+            .comment-delete { background: transparent; color: #8b2f2f; margin: 4px 0 0; padding: 0; font-size: 0.8rem; }
+            .comment-delete:hover { background: transparent; text-decoration: underline; }
+            .comment-form { display: grid; gap: 8px; margin-top: 12px; }
+            .comment-form button { justify-self: start; margin-top: 0; }
+            .thought-editor {
+                background: #f7efd9;
+                border: 1px solid #c69c45;
+                padding: 24px;
+                align-self: start;
+            }
+            label {
+                display: block;
+                color: #2d261d;
+                font-weight: 800;
+                margin: 14px 0 6px;
+            }
+            input,
+            textarea {
+                box-sizing: border-box;
+                width: 100%;
+                border: 1px solid #9b865f;
+                padding: 10px;
+                font: inherit;
+            }
+            textarea {
+                min-height: 150px;
+                resize: vertical;
+            }
+            button {
+                background: #734d16;
+                border: 0;
+                color: #fff;
+                cursor: pointer;
+                font: inherit;
+                font-weight: 800;
+                margin-top: 16px;
+                padding: 11px 16px;
+            }
+            button:hover { background: #4c3210; }
+            @media (max-width: 700px) {
+                .thought-layout { grid-template-columns: 1fr; }
+            }
+            footer {
+                background-color: #111a24;
+                color: #f5dfaa;
+                text-align: center;
+                padding: 10px;
+                border-top: 3px solid #c69c45;
+            }
+        </style>
+        <link rel="stylesheet" href="constellation.css">
+    </head>
+    <body>
+        <div class="virgo-bg" aria-hidden="true"></div>
+        <header>
+            <h1>Thoughts from Group 3</h1>
+            <p>Ideas, emotions, experiences, and stories</p>
+        </header>
+
+        <nav>
+            <a href="grade12virgo-group3portfolio.html#home">Home</a>
+            <a href="works.html">Works</a>
+            <a href="about.html">About</a>
+        </nav>
+
+        <main>
+            <div class="thought-layout">
+                <section id="thoughts">
+                    <article class="thought-card">
+                        <h2>Why Creative Writing Matters</h2>
+                        <p>Poetry, short stories, and drama scripts are special because they allow people to express ideas, emotions, experiences, and stories in different creative ways. Poetry uses rhythm, imagery, symbolism, and carefully chosen words to convey deep emotions and thoughts, often in only a few lines. Short stories are special because they can present a complete story within a limited amount of space, focusing on characters, conflicts, and meaningful events that readers can easily connect with. Drama scripts, on the other hand, are written to be performed, allowing stories to come alive through dialogue, acting, movement, and interaction between characters. Although these literary forms are different, they all help us understand human experiences and see the world from different perspectives.</p>
+                    </article>
+                    <h2 class="community-heading">Community Thoughts</h2>
+                    <div id="thought-posts"></div>
+                </section>
+
+                <aside class="thought-editor">
+                    <h2>Share a Thought</h2>
+                    <p>Post a reflection about creativity, writing, or an experience that inspired you.</p>
+                    <form id="thought-form">
+                        <label for="author">Your name</label>
+                        <input id="author" name="author" required>
+                        <label for="thought">Your thought</label>
+                        <textarea id="thought" name="thought" required></textarea>
+                        <button type="submit">Post Thought</button>
+                    </form>
+                </aside>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Group 3 Portfolio</p>
+        </footer>
+        <script>
+            const thoughtForm = document.getElementById('thought-form');
+            const thoughtPosts = document.getElementById('thought-posts');
+            const savedThoughts = JSON.parse(localStorage.getItem('group3Thoughts') || '[]');
+            const thoughtInteractions = JSON.parse(localStorage.getItem('group3ThoughtInteractions') || '{}');
+
+            savedThoughts.forEach(function (thought, index) {
+                if (!thought.id) thought.id = 'thought-' + index + '-' + Date.now();
+            });
+            localStorage.setItem('group3Thoughts', JSON.stringify(savedThoughts));
+
+            function saveInteractions() {
+                localStorage.setItem('group3ThoughtInteractions', JSON.stringify(thoughtInteractions));
+            }
+
+            function getInteraction(id) {
+                if (!thoughtInteractions[id]) thoughtInteractions[id] = { likes: 0, comments: [] };
+                return thoughtInteractions[id];
+            }
+
+            function sameName(firstName, secondName) {
+                return firstName.trim().toLowerCase() === secondName.trim().toLowerCase();
+            }
+
+            function addThought(thought) {
+                const article = document.createElement('article');
+                const interaction = getInteraction(thought.id);
+                article.className = 'thought-post';
+                article.innerHTML = '<h2></h2><p class="thought-text"></p><div class="thought-actions"><button class="like-button" type="button">Like <span class="like-count">0</span></button><button class="thought-delete" type="button">Delete Thought</button></div><div class="comments"><h3>Comments</h3><div class="comment-list"></div><form class="comment-form"><input name="commenter" placeholder="Your name" required><input name="comment" placeholder="Leave a comment" required><button type="submit">Post Comment</button></form></div>';
+                article.querySelector('h2').textContent = thought.author;
+                article.querySelector('.thought-text').textContent = thought.text;
+                article.querySelector('.like-count').textContent = interaction.likes;
+                const commentList = article.querySelector('.comment-list');
+
+                function renderComment(comment) {
+                    const item = document.createElement('div');
+                    item.className = 'comment';
+                    item.innerHTML = '<strong></strong><br><span></span><br><button class="comment-delete" type="button">Delete my comment</button>';
+                    item.querySelector('strong').textContent = comment.name;
+                    item.querySelector('span').textContent = comment.text;
+                    item.querySelector('.comment-delete').addEventListener('click', function () {
+                        const name = prompt('Enter your name to delete this comment:');
+                        if (name === null) return;
+                        if (!sameName(name, comment.name)) {
+                            alert('Only the commenter who posted this comment can delete it.');
+                            return;
+                        }
+                        const commentIndex = interaction.comments.indexOf(comment);
+                        if (commentIndex !== -1) interaction.comments.splice(commentIndex, 1);
+                        item.remove();
+                        saveInteractions();
+                    });
+                    commentList.append(item);
+                }
+
+                interaction.comments.forEach(renderComment);
+                article.querySelector('.like-button').addEventListener('click', function () {
+                    interaction.likes += 1;
+                    article.querySelector('.like-count').textContent = interaction.likes;
+                    saveInteractions();
+                });
+                article.querySelector('.thought-delete').addEventListener('click', function () {
+                    const authorName = prompt('Enter your name to delete this thought:');
+                    if (authorName === null) return;
+                    if (!sameName(authorName, thought.author)) {
+                        alert('Only the author of this thought can delete it.');
+                        return;
+                    }
+                    if (!confirm('Delete this thought?')) return;
+                    article.remove();
+                    const thoughtIndex = savedThoughts.findIndex(function (savedThought) {
+                        return savedThought.id === thought.id;
+                    });
+                    if (thoughtIndex !== -1) savedThoughts.splice(thoughtIndex, 1);
+                    delete thoughtInteractions[thought.id];
+                    localStorage.setItem('group3Thoughts', JSON.stringify(savedThoughts));
+                    saveInteractions();
+                });
+                article.querySelector('.comment-form').addEventListener('submit', function (event) {
+                    event.preventDefault();
+                    const form = event.target;
+                    const comment = {
+                        name: form.elements.commenter.value.trim(),
+                        text: form.elements.comment.value.trim()
+                    };
+                    interaction.comments.push(comment);
+                    renderComment(comment);
+                    form.reset();
+                    saveInteractions();
+                });
+                thoughtPosts.append(article);
+            }
+
+            savedThoughts.forEach(addThought);
+
+            thoughtForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+                const thought = {
+                    id: 'thought-' + Date.now(),
+                    author: document.getElementById('author').value.trim(),
+                    text: document.getElementById('thought').value.trim()
+                };
+                savedThoughts.push(thought);
+                localStorage.setItem('group3Thoughts', JSON.stringify(savedThoughts));
+                saveInteractions();
+                addThought(thought);
+                thoughtForm.reset();
+            });
+        </script>
+    </body>
+</html>
