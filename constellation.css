@@ -1,0 +1,125 @@
+body {
+    position: relative;
+    overflow-x: hidden;
+}
+body > :not(.virgo-bg) {
+    position: relative;
+    z-index: 1;
+}
+.virgo-bg {
+    position: fixed;
+    z-index: 0;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at 18% 25%, #6d3d8f99 0, transparent 35%),
+        radial-gradient(ellipse at 82% 68%, #b34d6d66 0, transparent 34%),
+        radial-gradient(ellipse at 55% 45%, #285c8c66 0, transparent 42%),
+        radial-gradient(circle at 12% 22%, #fff4c4 0 2px, transparent 3px),
+        radial-gradient(circle at 24% 68%, #fff4c4 0 1px, transparent 2px),
+        radial-gradient(circle at 42% 18%, #fff4c4 0 2px, transparent 3px),
+        radial-gradient(circle at 68% 30%, #fff4c4 0 1px, transparent 2px),
+        radial-gradient(circle at 86% 18%, #fff4c4 0 2px, transparent 3px),
+        radial-gradient(circle at 78% 76%, #fff4c4 0 1px, transparent 2px),
+        radial-gradient(circle at 8% 86%, #fff4c4 0 1px, transparent 2px),
+        radial-gradient(circle at 92% 56%, #fff4c4 0 1px, transparent 2px),
+        linear-gradient(125deg, #080d1d, #15153a 48%, #090d20);
+    opacity: 0.85;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+img, video, iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+@media (max-width: 700px) {
+    header {
+        padding: 30px 16px;
+    }
+
+    header h1 {
+        font-size: clamp(1.7rem, 8vw, 2.3rem);
+        line-height: 1.15;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    nav {
+        align-items: stretch;
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        flex: 1 1 33%;
+        min-width: 90px;
+        padding: 12px 8px;
+        font-size: 0.95rem;
+    }
+
+    main {
+        width: calc(100% - 24px);
+        margin: 24px auto;
+        padding: 24px 14px 56px;
+    }
+
+    main h2 {
+        font-size: 1.55rem;
+        line-height: 1.25;
+    }
+
+    main p {
+        overflow-wrap: anywhere;
+    }
+
+    section,
+    .post,
+    .editor,
+    .thought-card,
+    .thought-post,
+    .thought-editor {
+        padding: 18px;
+    }
+
+    .blog-layout,
+    .thought-layout {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .script,
+    .poem,
+    .story {
+        font-size: 0.92rem;
+        padding: 14px;
+        overflow-wrap: anywhere;
+    }
+
+    input,
+    textarea,
+    button,
+    .portfolio-link {
+        max-width: 100%;
+    }
+
+    textarea {
+        min-height: 150px;
+    }
+
+    .post-actions,
+    .thought-actions {
+        gap: 8px;
+    }
+
+    .post-actions button,
+    .thought-actions button,
+    .comment-form button {
+        min-height: 42px;
+    }
+}
